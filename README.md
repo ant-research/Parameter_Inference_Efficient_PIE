@@ -17,8 +17,10 @@ It's recommended to use a machine with over 400G memory to reproduce the results
 #### 1, Entity Typing
 The model implementation is based on [**PathCon**](https://github.com/hyren/PathCon). Thanks for their contributions.
 
-`cd entity_typing`
-`sh run.sh DATA_PATH`
+```bash
+cd entity_typing && sh run.sh DATA_PATH
+```
+
 The ${DTA_PATH} should conatin train_hrt.npy.
 
 After model training and inference, the code will output the distributuon p(r|e) for each entity. As the dataset is too large, we save the results with 15 sparse matrices. Please use src/cat_npz.py to concatenate all the sparse matrices.
@@ -28,14 +30,20 @@ This will save the $p(r|e)$ matrix for all entities  at ${SAVE_PATH}/e2r_scores.
 #### 2, Candidate Generation
 The sampling implementation is based on [**dgl-ke**](https://github.com/awslabs/dgl-ke). Thanks for their contributions.
 
-`cd candidate`
-`sh run.sh DATA_PATH`
+```bash
+cd candidate && sh run.sh DATA_PATH
+```
+
 The ${DATA_PATH} should contain folders, such as 'raw' and 'processed'.
 As we utilize multi processer to sampling the candidates and each processor saves the result individually, please use script src/cat.py to concatenate all the candidates to one file.
 
 #### 3, Knowledge Graph Embedding Reansoning
 The KGE implementation is based on the official baseline code of WikiKG90M [**OGB**](https://github.com/snap-stanford/ogb/tree/master/examples/lsc/wikikg90m). Thanks for their contributions.
-`cd wikikg90m-v2`
-`sh install_dgl.sh`
-`sh run.sh DATA_PATH SAVE_PATH`
-`sh run_test.sh SAVE_PATH DATA_PATH VAL_CANDIDATE_PATH TEST_CANDIDATE_PATH`
+
+
+```bash 
+cd wikikg90m-v2
+sh install_dgl.sh
+sh run.sh DATA_PATH SAVE_PATH
+sh run_test.sh SAVE_PATH DATA_PATH VAL_CANDIDATE_PATH TEST_CANDIDATE_PATH
+```
