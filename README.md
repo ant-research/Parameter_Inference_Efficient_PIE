@@ -1,6 +1,5 @@
 # PIE: a Parameter and Inference Efficient Solution for Large Scale Knowledge Graph Embedding Reasoning
-Paper link:
-
+Paper link: https://arxiv.org/abs/2204.13957
 
 ## Results
 The results of PIE powered TransE model is as follows.
@@ -8,7 +7,7 @@ The results of PIE powered TransE model is as follows.
 ### ogb-lsc-wikikg90mv2
 | | #Parameters | Test MRR | Valid MRR |
 |:------:|:------:|:------:|:------:|
-| TransE-shallow-PIE | 18,247,074,200 | - | 0.2342 |
+| TransE-shallow-PIE | 18,247,074,200 | 0.1883 | 0.2342 |
 
 #### System requirements:
 It's recommended to use a machine with over 400G memory to reproduce the results.
